@@ -1,0 +1,60 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>연필을 깎아 다듬은 함수들</title>
+<script>
+
+function dogsAge(age) {
+	return age * 7;
+}
+
+function rectangleArea(width, height) {
+	var area = width * height;
+	return area;
+}
+
+function addUp(numArray) {
+	var total = 0;
+	for (var i = 0; i < numArray.length; i++) {
+		total += numArray[i];
+	}
+	return total;
+}
+
+function getAvatar(points) {
+	var avatar;
+	if (points < 100) {
+		avatar = "쥐";
+	} else if (points > 100 && points < 1000) {
+		avatar = "고양이";
+	} else {
+		avatar = "원숭이";
+	}
+	return avatar;
+}
+
+var myDogsAge = dogsAge(4);
+var rectArea = rectangleArea(3, 4);
+var theTotal = addUp([1, 5, 3, 9]);
+var myAvatar = getAvatar(335);
+
+// 추가 변수에 함수 할당 1
+
+window.onload = outputResults;
+function outputResults(){
+	var output = document.getElementById("output");
+}
+
+
+
+
+
+
+</script>
+</head>
+<body>
+
+<!--  추가 표시할 영역 2 -->
+
+</body>
+</html>

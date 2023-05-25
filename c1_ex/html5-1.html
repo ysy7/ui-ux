@@ -1,0 +1,23 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>강아지</title>
+</head>
+<body>
+<p id="soundslike"></p>
+
+<script>
+var walksLike = "duck";
+//var walksLike = "sleepdog";
+	var soundsLike = document.getElementById("soundslike");
+	if (walksLike == "dog") {
+		soundsLike.innerHTML = "멍! 멍!";
+	} else if (walksLike == "duck") {
+		soundsLike.innerHTML = "꽥, 꽥";
+	} else {
+		soundsLike.innerHTML = "조용~";
+	}
+</script>
+</body>
+</html>
+

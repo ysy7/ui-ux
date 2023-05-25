@@ -1,0 +1,24 @@
+﻿// --------------------- 준비 코드 시작 ------------------
+//
+// 구면 코사인 법칙으로 두 위도/경도 지점의 거리를 구함
+//
+function computeDistance(startCoords, destCoords) {
+	var startLatRads = degreesToRadians(startCoords.latitude);
+	var startLongRads = degreesToRadians(startCoords.longitude);
+	var destLatRads = degreesToRadians(destCoords.latitude);
+	var destLongRads = degreesToRadians(destCoords.longitude);
+
+	var Radius = 6371; // 지구의 반경 (km)
+	var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) + 
+					Math.cos(startLatRads) * Math.cos(destLatRads) *
+					Math.cos(startLongRads - destLongRads)) * Radius;
+
+	return distance;
+}
+
+function degreesToRadians(degrees) {
+	radians = (degrees * Math.PI)/180;
+	return radians;
+}
+
+// ------------------ 준비 코드 종료 -----------------

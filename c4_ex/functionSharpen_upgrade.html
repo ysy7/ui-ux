@@ -1,0 +1,52 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>함수들2</title>
+<script>
+function getAvatar1(points){
+   var level = points / pointsPerLevel;
+   if(level == 0){
+      return "장난감 곰";
+   }else if (level == 1){
+      return "고양이";
+   }else if (level >= 2){
+      return "고릴라";
+   }
+}
+function updatePoints(bonus, newPoints){
+   for(var i=0; i< bonus; i++){
+      newPoints += skill * bonus;
+   }
+   return newPoints + userPoints;
+                                 
+}
+
+var skill =1.0;
+var pointsPerLevel =1000;
+var userPoints =2008;
+userPoints = updatePoints(2,100);
+
+youravatar = getAvatar1(userPoints);
+
+
+window.onload = outputResults;
+function outputResults() {
+// 추가 변수에 함수 할당 1
+   let output = document.getElementById("output");
+   output.innerHTML = `
+      userPoints = ${userPoints} <br />
+      youravatar = ${youravatar}
+   `;
+   
+   
+   
+}
+
+</script>
+</head>
+<body>
+
+<!--  추가 표시할 영역 2 -->
+<div id="output"></div>
+</body>
+</html>

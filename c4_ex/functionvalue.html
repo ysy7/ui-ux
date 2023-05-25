@@ -1,0 +1,53 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>내 자바스크립트 예제</title>
+</head>
+<body>
+<script>
+  function dogsAge(age){
+  	return age*7;
+  } 
+  // 추가 함수호출 및 할당 1
+  var myDogsAge = dogsAge(4)
+
+  function rectangleArea(width, height){
+  	var area = width * height
+  	return area;
+  } 
+  // 추가 함수호출 및 할당 2
+	var rectArea = rectangleArea(3,4);
+
+  function addUp(numArray){
+  	var total =0;
+  	for(var i=0; i< numArray.length;i++){
+  	total += numArray[i];
+  	}
+  	return total;
+  }
+  // 추가 함수호출 및 할당 3
+  var theTotal = addUp([1,3,5,9]);
+
+  function getAvatar(points){
+  	var avatar;
+  	if(points <100){
+  		avatar = "쥐";
+  	}else if (points >100 && points < 1000){
+  		avatar="고양이";
+  	}else {
+  		avatar="원숭이";
+  	}
+  	return avatar;
+  }
+  // 추가 함수호출 및 할당 4
+  var myAvatar = getAvatar(335);
+
+  //추가 출력 5
+	document.write("myDogsAge = "+ myDogsAge + "<p>");
+	document.write("rectArea = "+ rectArea + "<p>");
+	document.write("theTotal = "+ theTotal + "<p>");
+	document.write("myAvatar = "+ myAvatar + "<p>");
+
+  </script>
+  </html>
+

@@ -1,0 +1,64 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>웹마을 시네마</title>
+<script>
+window.onload = function() {
+
+	var banzaiMovie = new Movie("카우보이 밴자이",
+								"고전 컬트",
+								5,
+								["1:00pm", "5:00pm", "7:00pm", "11:00pm"]);
+	alert(banzaiMovie.getNextShowing());
+
+	var plan9Movie = new Movie("외계로부터의 9호 계획",
+								"고전 컬트",
+								2,
+								["3:00pm", "7:00pm", "11:00pm"]);
+	alert(plan9Movie.getNextShowing());
+
+	var forbiddenPlanetMovie = new Movie("금지된 세계",
+								"고전 SF",
+								5,
+								["5:00pm", "9:00pm"]);
+	alert(forbiddenPlanetMovie.getNextShowing());
+
+	var mirimMovie = new Movie("미림 영상", "현대 SF", 3,
+                            ["3:00pm", "4:00pm", "9:00pm", "10:00pm"]);
+  alert(mirimMovie.getNextShowing());
+
+}
+
+//자바에서처럼 클래스로 안만들고 함수를 그대로 틀로 사용
+function Movie(title, genre, rating, showtimes) {
+	this.title = title;
+	this.genre = genre;
+	this.rating = rating;
+	this.showtimes = showtimes;
+	this.getNextShowing = function(){
+		var now = new Date().getTime();
+		for(var i = 0; i<this.showtimes.length; i++){
+			var showtime = getTimeFromString(this.showtimes[i]);
+			if((showtime - now)>0){
+				return this.title  + "의 다음 상영시간은" +this.showtimes[i]
+
+			}
+		}
+		return null;
+	};
+
+}
+
+function getTimeFromString(str) {
+	var theTime = new Date();
+	var time = str.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+	theTime.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
+	theTime.setMinutes( parseInt(time[2]) || 0 );
+	return theTime.getTime();
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

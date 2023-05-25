@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>기온</title>
+
+<script>
+window.onload = showTemps;
+
+function showTemps() {
+	//배열 선언 및 할당
+
+
+
+
+
+
+
+
+	for (var i = 0; i < tempByHour.length; i++) {
+		var theTemp = tempByHour[i];
+		var id = "temp" + i;
+		var li = document.getElementById(id);
+		if (i == 0) {
+			li.innerHTML = "정오의 기온은 " + theTemp + "도였습니다.";
+		} else {
+			li.innerHTML = "오후 " + i + "시의 기온은 " + theTemp + "도였습니다.";
+		}
+	}
+}
+</script>
+</head>
+<body>
+<h1>기온</h1>
+<ul>
+	<!-- 영역 표시 -->
+
+
+
+
+
+
+
+</ul>
+</body>
+</html>
+

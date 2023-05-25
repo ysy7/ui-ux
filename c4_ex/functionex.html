@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<title>function할당</title>
+</head>
+<body>
+<script>
+//그러나 변수에 함수를 할당(assign)할 수 있을까?
+
+function addOne(num){
+  return num+1;
+};
+//전달된 인자에 1을 더하는 간단한 함수를 정의
+
+var plusOne = addOne;
+//addOne()이라고 함수를 호출한 것이 아니라
+//addOne 함수 이름만 사용하여 plusOne이란 변수에 함수 할당
+
+var result = plusOne(1);
+alert(result);
+//plusOne에 함수가 할당됐으므로 1이라는 정수 인자와 함께 호출하여 
+//return 받음
+
+</script>
+</body>
+
+</html>
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+</script>
+</body>
+</html>
+
