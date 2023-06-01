@@ -1,5 +1,5 @@
 'use strict'; 
-var countDown=new Date("DEC 31, 2021 23:59:59").getTime();
+var countDown=new Date("DEC 31, 2023 23:59:59").getTime();
     var x= setInterval(function(){
     var now=new Date().getTime();
     var distance=countDown-now;
