@@ -1,12 +1,10 @@
 /* myLoc.js */
-  
+
 var watchId = null;
 var map = null;
 var ourCoords =  {
-	// latitude: 47.624851,
-	// longitude: -122.52099
-	latitude: 37.5662952,
-	longitude: 126.9757564
+	latitude: 47.624851,
+	longitude: -122.52099
 };
 
 window.onload = getMyLocation;
@@ -28,17 +26,21 @@ function displayLocation(position) {
 	var longitude = position.coords.longitude;
 
 	var div = document.getElementById("location");
-	div.innerHTML = "당신은 위도 경도:<br> " + latitude +", "+ longitude+"<br>";
+	div.innerHTML = "당신은 위도: " + latitude + ", 경도: " + longitude + "에 있습니다";
 	div.innerHTML += " (" + position.coords.accuracy + "m 정확도)";
 
 	var km = computeDistance(position.coords, ourCoords);
 	var distance = document.getElementById("distance");
-	distance.innerHTML = "서울시청과의 거리: " + km + "km";
+	distance.innerHTML = "당신은 WickedlySmart HQ와 " + km + "km 떨어져 있습니다";
 
 	if (map == null) {
 		showMap(position.coords);
 	}
-	else {
+
+	//추가2	
+	if(map == null) {
+		showMap(position.coords);
+	} else {
 		scrollMapToPosition(position.coords);
 	}
 }
@@ -123,15 +125,14 @@ function displayError(error) {
 	div.innerHTML = errorMessage;
 }
 
-//
 // 사용자 위치를 보는 코드
-//
 function watchLocation() {
 	watchId = navigator.geolocation.watchPosition(
 					displayLocation, 
 					displayError);
 }
 
+//추가1
 function scrollMapToPosition(coords) {
 	var latitude = coords.latitude;
 	var longitude = coords.longitude;
@@ -139,9 +140,8 @@ function scrollMapToPosition(coords) {
 	var latlong = new google.maps.LatLng(latitude, longitude);
 	map.panTo(latlong);
 
-	// 새 마커 추가
-	addMarker(map, latlong, "Your new location", "You moved to: " + 
-								latitude + ", " + longitude);
+	//새 마커 추가
+	addMarker(map, latlong, "Your new location", "You moved to: "+latitude+", "+longitude);
 }
 
 function clearWatch() {
@@ -150,6 +150,3 @@ function clearWatch() {
 		watchId = null;
 	}
 }
-
-
-
