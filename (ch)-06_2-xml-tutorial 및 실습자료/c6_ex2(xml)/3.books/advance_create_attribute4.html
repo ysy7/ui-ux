@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body>
+	<script>
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET", "books.xml", false);
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+
+		x = xmlDoc.getElementsByTagName("book");
+		for (i = 0; i < x.length; i++) {
+			x[i].setAttribute("edition", "first");
+		}
+		x[x.length - 1].setAttribute("edition", "second");
+		//Output all attribute values
+		for (i = 0; i < x.length; i++) {
+			document.write("Category: " + x[i].getAttribute('category')
+					+ "<br>");
+			document.write("Edition: " + x[i].getAttribute('edition') + "<br>");
+		}
+	</script>
+</body>
+</html>

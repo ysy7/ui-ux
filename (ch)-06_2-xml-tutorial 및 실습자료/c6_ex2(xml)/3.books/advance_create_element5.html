@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<script>
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.open("GET", "books.xml", false);
+		xmlhttp.send();
+		xmlDoc = xmlhttp.responseXML;
+
+		newel = xmlDoc.createElement("edition");
+		newtext = xmlDoc.createTextNode("First");
+		newel.appendChild(newtext);
+		x = xmlDoc.getElementsByTagName("book");
+		x[0].appendChild(newel);
+		
+
+		for (i = 0; i < x[0].childNodes.length; i++) {
+			if (x[0].childNodes[i].nodeType == 1) {
+				document.write(x[0].childNodes[i].nodeName);
+				document.write(": ");
+				document.write(x[0].childNodes[i].childNodes[0].nodeValue);
+				document.write("<br>");
+			}
+		}
+		
+		document.write("<br>");
+		for (i = 0; i < x[1].childNodes.length; i++) {
+			if (x[1].childNodes[i].nodeType == 1) {
+				document.write(x[1].childNodes[i].nodeName);
+				document.write(": ");
+				document.write(x[1].childNodes[i].childNodes[0].nodeValue);
+				document.write("<br>");
+			}
+		}
+		document.write("<br>");
+		
+	</script>
+</body>
+</html>
