@@ -25,6 +25,24 @@
 		txt = y.nodeValue;
 		document.write(txt+" /");
 		document.write("<br>");
+
+		document.write("================================"+"<br>");
+		x = xmlDoc.getElementsByTagName("author")[0].childNodes[0];
+
+		x=xmlDoc.getElementsByTagName("author")[0].childNodes[0];
+		document.write("처음 첫번쨰 book의 저자"+x.nodeValue+"를"+"<br>");
+		x.nodeValue = "ysy";
+		txt = x.nodeValue;
+		document.wrte("변경 후 book의 저자"+txt+"를 수정"+"<br>");
+		document.write("<br>");
+
+		x = xmlDoc.getElementsByTagName("year")[0].childNodes[0];
+		document.wrte("처음 첫번째 book의 출판년도" +x.nodeValue+"를"+"<br>");
+		x.nodeValue = "2025";
+		txt=y.nodeValue;
+		document.wrte("변경 후 book의 출판년도"+txt+"로 수정"+"<br>");
+		document.write("<br>");
+
 	</script>
 </body>
 </html>
