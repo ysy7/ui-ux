@@ -34,6 +34,7 @@
       x[x.length - 1].setAttribute("edition", 99);
       //Output all attribute values
       for (i = 0; i < x.length; i++) {
+         if(i == 2) x[i].setAttribute("cover", "softcover");
          document.write("Cover: " + x[i].getAttribute('cover')
                + "<br>");
          document.write("soldtotal: " + x[i].getAttribute('edition') + "<br>");
